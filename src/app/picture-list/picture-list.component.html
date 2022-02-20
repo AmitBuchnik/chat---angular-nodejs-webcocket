@@ -1,0 +1,28 @@
+<div class="container">
+  <form class="search-container"
+    [formGroup]="reactiveForm">
+    <input type="text"
+      id="search-bar"
+      formControlName="searchTerm"
+      placeholder="What can are you looking for?">
+    <a href="#"
+      class="search-icon">
+      <i class="fa fa-search"></i>
+    </a>
+  </form>
+
+  <div class="cards-wrapper">
+    <div class="cards-content flex flex-wrap">
+      <app-card *ngFor="let p of pictures$ | async; let i = index">
+        <div class="flex flex-column align-items-start"
+          (click)="onClickCard(p)">
+          <img src="{{ p.imgUrl }}"
+            alt="">
+          <h3 class="name"> {{ p?.name }}</h3>
+          <h5 class="artist-name"> {{ p?.artistName }}</h5>
+          <div> {{ p?.description }}</div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <ng-container *ngIf="(picture$ | async) as picture; else noData">
+    <div class="flex flex-column">
+      <div class="header">
+        <span class="name">{{ picture?.name }}</span><span class="artist-name">{{ picture?.artistName }}</span>
+      </div>
+      <div class="body flex justify-content-between">
+        <img src="{{ picture?.imgUrl }}"
+          alt="">
+        <app-chat></app-chat>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noData>
+    <div class="flex justify-content-center align-items-center">No data</div>
+  </ng-template>
+</div>

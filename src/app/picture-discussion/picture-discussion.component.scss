@@ -1,0 +1,25 @@
+.container {
+  padding: 30px;
+
+  .header {
+    padding: 5px;
+
+    .name {
+      font-size: large;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .artist-name {
+      color: gray;
+    }
+  }
+
+  .body {
+    height: 85vh;
+
+    img {
+      width: 78%;
+    }
+  }
+}

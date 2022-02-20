@@ -1,0 +1,33 @@
+<p-card [style]="{width: '360px', height: '100%', position: 'relative'}"
+  styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <div class="header">Chat</div>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <p-listbox [options]="messages"></p-listbox>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div [style]="{ position: 'absolute', bottom: 0, width: '92%', marginBottom: '5px'}">
+      <form [formGroup]="reactiveForm">
+        <input *ngIf="!reactiveForm?.get('name')?.value"
+          type="text"
+          class="user-name"
+          pInputText
+          formControlName="name"
+          placeholder="Enter your name here">
+        <div class="p-inputgroup">
+          <input type="text"
+            pInputText
+            formControlName="message"
+            placeholder="Type your message here">
+          <button type="button"
+            pButton
+            pRipple
+            (click)="sendMessage()"
+            label="Send"></button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</p-card>
